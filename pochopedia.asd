@@ -6,12 +6,12 @@
   :author "Christoph Finkensiep <chfin@freenet.de>"
   :license "MIT/X11"
   :depends-on (#:alexandria
-               #:ev-liturgical-colors
                #:ningle
                #:clack-handler-hunchentoot
-               #:site-compiler
+               #:ev-liturgical-colors
                #:envy
                #:osicat
+               #:site-compiler
                #:montezuma)
   :components ((:file "opensearch")
                (:file "util")
