@@ -1,0 +1,16 @@
+# schema file: person.yaml
+# Allgemeines Schema für Personen.
+template: person
+link: <% @var name %>
+keys:
+  name:        # Name der Person
+  birth:       # Geburt
+  death:       # Tod
+  description: # Textbeschreibung der Person
+    markdown: true
+  wikipedia:   # Link zu Wikipedia
+  pieces:      # Stücke, die die Person geschrieben hat
+    reverse:
+      schema: piece
+      key: composer
+    link: true

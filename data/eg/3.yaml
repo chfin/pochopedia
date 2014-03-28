@@ -1,0 +1,16 @@
+# Choralbuch 3
+schema: eg-choral
+title: Gott, heiliger Schöpfer aller Stern
+composer: persons/v_gwinner
+key: Es-Dur
+time-sig: 3/2 2/2 4/2
+voices: SATB
+year:
+poet: Thomas Müntzer
+melodist:
+melody-desc: Kempten um 1000
+intonation: persons/v_gwinner
+eg-number: 3
+eg-sub:
+previous: eg/2
+next: 

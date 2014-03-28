@@ -1,0 +1,120 @@
+/*
+ * bg: #f8f8f8
+ * a-bg: #e7e7e7
+ * fg: #777
+ * a-fg: #555/#333
+ * da: #ddd/#ccc
+ */
+
+.lit-background {
+  background-color: #661a72;
+  color: #fff;
+}
+
+
+input.liturgical:hover {
+  /*border-color: #aa2bbe;*/
+}
+
+input.liturgical:focus {
+  border-color: #ccc; /*#661a72; */
+  box-shadow: inset 0 0 2px #661a72;
+}
+
+
+.navbar-liturgical {
+  background-color: #661a72;
+  border-color: #aa2bbe;
+}
+
+.navbar-liturgical .navbar-brand {
+  color: #fbf;
+}
+
+.navbar-liturgical .navbar-brand:hover,
+.navbar-liturgical .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-liturgical .navbar-text {
+  color: #fbf;
+}
+
+.navbar-liturgical .navbar-nav > li > a {
+  color: #fbf;
+}
+
+.navbar-liturgical .navbar-nav > li > a:hover,
+.navbar-liturgical .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-liturgical .navbar-nav > .active > a,
+.navbar-liturgical .navbar-nav > .active > a:hover,
+.navbar-liturgical .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #aa2bbe;
+}
+
+.navbar-liturgical .navbar-nav > .disabled > a,
+.navbar-liturgical .navbar-nav > .disabled > a:hover,
+.navbar-liturgical .navbar-nav > .disabled > a:focus {
+  color: #aa2bbe;
+  background-color: transparent;
+}
+
+.navbar-liturgical .navbar-toggle {
+  border-color: #aa2bbe;
+}
+
+.navbar-liturgical .navbar-toggle:hover,
+.navbar-liturgical .navbar-toggle:focus {
+  background-color: #aa2bbe;
+}
+
+.navbar-liturgical .navbar-toggle .icon-bar {
+  background-color: #fbf;
+}
+
+.navbar-liturgical .navbar-collapse,
+.navbar-liturgical .navbar-form {
+  border-color: #aa2bbe;
+}
+
+.navbar-liturgical .navbar-nav > .open > a,
+.navbar-liturgical .navbar-nav > .open > a:hover,
+.navbar-liturgical .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #aa2bbe;
+}
+
+@media (max-width: 767px) {
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > li > a {
+    color: #fbf;
+  }
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+  }
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #aa2bbe;
+  }
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-liturgical .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #aa2bbe;
+    background-color: transparent;
+  }
+}
+.navbar-liturgical .navbar-link {
+  color: #fbf;
+}
+.navbar-liturgical .navbar-link:hover {
+  color: #fff;
+}

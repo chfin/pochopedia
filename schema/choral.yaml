@@ -1,0 +1,15 @@
+# schema file: choral.yaml
+# Allgemeines Schema für Choräle.
+# Erweitert das Schema piece um Eigenschaften, die spezifisch für Choräle sind,
+# z.B. Text, Textdichter, Melodist usw.
+template: choral
+link: <% @var title %>
+include: piece
+keys:
+#  text:        # Liedtext # besser in der Übersicht
+  poet:        # Textdichter
+  melodist:    # Melodist
+  melody-desc: # Melodiebeschreibung (z.B. Köln um 1200)
+  intonation:  # Intonation
+    foreign: person
+    link: true

@@ -1,0 +1,27 @@
+<%# template file: person #%>
+<% @include header.tmpl %>
+
+<h1 class="page-header"><% @var name %></h1>
+<p>
+  (<% @if death %><% @var birth %> - <% @var death %><% @else %>* <% @var birth %><% @endif %>)
+</p>
+<% @if wikipedia %>
+<p>
+  <a href="<% @var wikipedia %>">Wikipedia</a>
+</p>
+<% @endif %>
+<section>
+  <% @var description %>
+</section>
+<% @if pieces %>
+<section>
+  <h1>Stücke</h1>
+  <ul>
+    <% @loop pieces %>
+    <li><% @var this %></li>
+    <% @endloop %>
+  </ul>
+</section>
+<% @endif %>
+
+<% @include footer.tmpl %>

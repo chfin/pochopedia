@@ -1,0 +1,9 @@
+schema: person
+name: "Volker Gwinner"
+birth: "18. August 1912"
+death: "7. Mai 2004"
+wikipedia: "https://de.wikipedia.org/wiki/Volker_Gwinner"
+description: bla
+#  Volker Gwinner studierte zunächst Musik bei Günther Ramin, Günter Raphael und Johann Nepomuk David. Anschließend war er als Kirchenmusiker in Bremen und Dresden (Sophienkirche) tätig. Nahezu 20 Jahre, von 1957 bis 1977 wirkte Volker Gwinner als Komponist und Organist in Lüneburg (St. Johanniskirche). Dazwischen lehrte er am Konservatorium der Stadt Bremen und an der Kirchenmusikschule Hannover. 1968 trat er außerdem eine Dozentenstelle an der Staatlichen Hochschule für Musik und Theater in Hannover an, die er bis 1980 beibehielt. 1970 erfolgte seine Ernennung zum Professor.
+  
+#  Volker Gwinner schrieb zahlreiche Kompositionen für Chor, Orgel und andere Instrumente sowie Auftragsmusiken für Funk und Fernsehen. Konzertreisen führten ihn ins europäische Ausland und nach Übersee. Seinen Lebensabend verbrachte er in Bremen-Oberneuland.

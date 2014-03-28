@@ -1,0 +1,16 @@
+# Choralbuch 1b
+schema: eg-choral
+title: Macht hoch die Tür
+composer: persons/v_gwinner
+key: Es-Dur
+time-sig: 6/4
+voices: SATB
+year:
+poet: Georg Weißel
+melodist:
+melody-desc: Halle 1704
+intonation: persons/v_gwinner
+eg-number: 1
+eg-sub: b
+previous: eg/1a
+next: eg/2

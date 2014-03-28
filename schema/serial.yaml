@@ -1,0 +1,7 @@
+# schema file: serial.yaml
+# Für Stücke (oder andere Dinge), die sich in einer Reihe befinden.
+keys:
+  previous:
+    foreign: serial
+  next:
+    foreign: serial

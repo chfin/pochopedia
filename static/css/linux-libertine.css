@@ -1,0 +1,9 @@
+@font-face {
+    font-family: LinLibertine;
+    src: local("Linux Libertine"),
+    url("/static/fonts/LinLibertine_R.woff") format("woff"),
+    url("/static/fonts/LinLibertine_R.otf") format("otf"),
+    url("/static/fonts/LinLibertine_Rah.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}

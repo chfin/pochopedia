@@ -1,0 +1,54 @@
+<%# template file: eg-choral #%>
+<% @include header.tmpl %>
+
+<nav class="prev-next hidden-print">
+  <% @if previous %>
+  <% @with previous %>
+  <a class="previous" href="<% @var :url %>">&laquo; <% @var :link-text %></a>
+  <% @endwith %>
+  <% @endif %>
+  <% @if next %>
+  <% @with next %>
+  <a class="next" href="<% @var :url %>"><% @var :link-text %> &raquo;</a>
+  <% @endwith %>
+  <% @endif %>
+</nav>
+
+<h1 class="page-header">
+  <% @var title %>
+  <small>[EG <% @var eg-number %><% @if eg-sub %> <% @var eg-sub %><% @endif %>]</small>
+</h1>
+<section>
+  <dl class="dl-horizontal">
+    <dt>Tonart</dt><dd><% @var key %></dd>
+    <dt>Taktart</dt><dd><% @var time-sig %></dd>
+    <dt>Besetzung</dt><dd><% @var voices %></dd>
+  </dl>
+</section>
+<section>
+  <dl class="dl-horizontal">
+    <dt>Text</dt><dd><% @var poet %></dd>
+    <dt>Melodie</dt>
+    <dd>
+      <% @if melodist %><% @var melodist %><% @endif %>
+      <% @if melody-desc %><% @var melody-desc %><% @endif %>
+    </dd>
+    <dt>Satz</dt><dd><% @var composer %></dd>
+    <dt>Intonation</dt><dd><% @var intonation %></dd>
+  </dl>
+</section>
+<% @if eg-redirects %>
+<section>
+  Choräle mit der selben Melodie:
+  <ul>
+    <% @loop eg-redirects %>
+    <% @var this %>
+    <% @endloop %>
+  </ul>
+</section>
+<% @endif %>
+<ul class="pager">
+</ul>
+
+
+<% @include footer.tmpl %>

@@ -1,0 +1,26 @@
+body {
+    padding-top: 50px;
+}
+
+.logo {
+    font-family: LinLibertineS !important;
+}
+
+.prev-next {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    /*list-style: none outside none;*/
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.prev-next .previous {
+    float: left;
+    display: block;
+}
+
+.prev-next .next {
+    float: right;
+    display: block;
+}

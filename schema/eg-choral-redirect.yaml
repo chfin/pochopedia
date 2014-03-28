@@ -1,0 +1,9 @@
+# schema file: eg-choral-redirect.yaml
+# Schema für EG-Choräle ohne eigenen Satz
+template: eg-choral-redirect
+keys:
+  title:
+  eg-number:
+  redirect:
+    index: true
+    list: true

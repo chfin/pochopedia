@@ -1,0 +1,13 @@
+# schema file: eg-choral.yaml
+# Für Choräle aus dem Choralbuch zum EG.
+template: eg-choral
+link: <% @var title %> [EG <% @var eg-number %><% @if eg-sub %> <% @var eg-sub %><% @endif %>]
+include: [choral, serial]
+keys:
+  eg-number:    # EG-Nummer ("1", "316/317", "178.7")
+  eg-sub:       # Satzbezeichnung (a/b, I/II)
+  eg-redirects: # Choräle, die auf diesen Verweisen.
+    reverse:
+      schema: eg-choral-redirect
+      key: redirect
+    link: true

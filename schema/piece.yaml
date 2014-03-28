@@ -1,0 +1,15 @@
+# schema file: piece.yaml
+# Allgemeines Schema für Stücke ohne spezielle Eigenschaften.
+# Sollte auch per includes in speziellere Templates eingebunden werden.
+template: piece
+link: <% @var title %>
+keys:
+  title:    # Titel
+  composer: # Komponist
+    index: true
+    foreign: person
+    link: true
+  key:      # Tonart
+  time-sig: # Taktart
+  voices:   # Besetzung
+  year:     # Jahr
