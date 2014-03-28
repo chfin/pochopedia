@@ -23,10 +23,12 @@
 
 (defconfig |local|
     `(:port 5001
+      :swank-port 5002
       :serve-static t))
 
 (defconfig |production|
     `(:port 61819
+      :swank-port 61820
       :serve-static t))
 
 (defun config (&optional key)

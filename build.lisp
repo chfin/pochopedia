@@ -12,11 +12,12 @@
   (setf (osicat:environment-variable "POCHO_ENV") "production")
   (pochopedia:compile-db)
   (pochopedia:start-server)
-  (swank:create-server :port (or (parse-integer
-                                  (osicat:environment-variable "POCHO_SWANK_PORT"))
-                                 (pochopedia.config:config :swank-port)
-                                 swank::default-server-port)
-                       :dont-close t)
+  (let ((env-port (osicat:environment-variable "POCHO_SWANK_PORT")))
+    (swank:create-server :port (or (and env-port
+                                        (parse-integer env-port))
+                                   (pochopedia.config:config :swank-port)
+                                   swank::default-server-port)
+                         :dont-close t))
   (mapcar #'bt:join-thread (bt:all-threads)))
 
 (trivial-dump-core:save-executable "pochopedia" #'run)
