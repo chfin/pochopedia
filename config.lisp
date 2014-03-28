@@ -14,15 +14,19 @@
   (setf (osicat:environment-variable "POCHO_ENV") "local"))
 
 (defconfig :common
-    `(:application-root ,(asdf:system-source-directory "pochopedia")))
-
-(defconfig |local|
-    `(:site-path "site/default.html"
+    `(:application-root ,(asdf:system-source-directory "pochopedia")
+      :site-path "site/default.html"
       :data-path "data/default.yaml"
       :schema-path "schema/default.yaml"
       :template-path "template/default.tmpl"
-      :base-url "/site/"
-      :port 5001
+      :base-url "/site/"))
+
+(defconfig |local|
+    `(:port 5001
+      :serve-static t))
+
+(defconfig |production|
+    `(:port 61819
       :serve-static t))
 
 (defun config (&optional key)
