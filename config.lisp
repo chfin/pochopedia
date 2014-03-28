@@ -19,7 +19,8 @@
       :data-path "data/default.yaml"
       :schema-path "schema/default.yaml"
       :template-path "template/default.tmpl"
-      :base-url "/site/"))
+      :base-url "/site/"
+      :server :hunchentoot))
 
 (defconfig |local|
     `(:port 5001

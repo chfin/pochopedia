@@ -100,7 +100,8 @@
                 ;;(<clack-middleware-static> :path "/" :root (rel-path "site/index.html"))
                 *wrapped-app*)
                *wrapped-app*)
-           :port (config :port)))))
+           :port (config :port)
+           :server (config :server)))))
 
 (defun stop-server ()
   (clack:stop *handler*)
