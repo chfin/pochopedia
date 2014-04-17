@@ -1,7 +1,7 @@
 <%# template file: eg-choral #%>
 <% @include header.tmpl %>
 
-<nav class="prev-next hidden-print row">
+<nav class="prev-next hide-for-print row">
   <% @if previous %>
   <% @with previous %>
   <a class="medium-6 columns" href="<% @var :url %>">&laquo; <% @var :link-text %></a>
