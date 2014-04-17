@@ -6,21 +6,6 @@ nav .logo {
     font-size: 21px;
 }
 
-.prev-next {
-    padding: 8px 15px;
-    margin-bottom: 20px;
-    /*list-style: none outside none;*/
-    background-color: #F5F5F5;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.prev-next .previous {
-    float: left;
-    display: block;
-}
-
-.prev-next .next {
-    float: right;
-    display: block;
+h1.page-header {
+    border-bottom: 1px solid #eee;
 }

@@ -1,20 +1,20 @@
 <%# template file: eg-choral #%>
 <% @include header.tmpl %>
 
-<nav class="prev-next hidden-print">
+<nav class="prev-next hidden-print row">
   <% @if previous %>
   <% @with previous %>
-  <a class="previous" href="<% @var :url %>">&laquo; <% @var :link-text %></a>
+  <a class="medium-6 columns" href="<% @var :url %>">&laquo; <% @var :link-text %></a>
   <% @endwith %>
   <% @endif %>
   <% @if next %>
   <% @with next %>
-  <a class="next" href="<% @var :url %>"><% @var :link-text %> &raquo;</a>
+  <a class="medium-6 columns text-right" href="<% @var :url %>"><% @var :link-text %> &raquo;</a>
   <% @endwith %>
   <% @endif %>
 </nav>
 
-<h1>
+<h1 class="page-header">
   <% @var title %>
   <small>[EG <% @var eg-number %><% @if eg-sub %> <% @var eg-sub %><% @endif %>]</small>
 </h1>

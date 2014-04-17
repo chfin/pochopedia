@@ -37,7 +37,7 @@ html, body {
 
 body {
   background: #fff;
-  color: #222;
+  color: #333;
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -2336,7 +2336,7 @@ meta.foundation-mq-topbar {
       margin: 0; }
       .top-bar .name h1 a {
         font-weight: normal;
-        color: #444;
+        color: #777;
         width: 75%;
         display: block;
         padding: 0 1rem; }
@@ -2345,7 +2345,7 @@ meta.foundation-mq-topbar {
     right: 0;
     top: 0; }
     .top-bar .toggle-topbar a {
-      color: #444;
+      color: #777;
       text-transform: uppercase;
       font-size: 0.8125rem;
       font-weight: bold;
@@ -2374,7 +2374,7 @@ meta.foundation-mq-topbar {
           width: 16px;
           top: 0;
           height: 0;
-          box-shadow: 0 10px 0 1px #444, 0 16px 0 1px #444, 0 22px 0 1px #444; }
+          box-shadow: 0 10px 0 1px #777, 0 16px 0 1px #777, 0 22px 0 1px #777; }
   .top-bar.expanded {
     height: auto;
     background: transparent; }
@@ -2383,7 +2383,7 @@ meta.foundation-mq-topbar {
     .top-bar.expanded .toggle-topbar a {
       color: #888; }
       .top-bar.expanded .toggle-topbar a::after {
-        box-shadow: 0 10px 0 1px #444, 0 16px 0 1px #444, 0 22px 0 1px #444; }
+        box-shadow: 0 10px 0 1px #777, 0 16px 0 1px #777, 0 22px 0 1px #777; }
 
 .top-bar-section {
   left: 0;
@@ -2405,7 +2405,7 @@ meta.foundation-mq-topbar {
   .top-bar-section ul li > a {
     display: block;
     width: 100%;
-    color: #444;
+    color: #777;
     padding: 12px 0 12px 0;
     padding-left: 1rem;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -2485,7 +2485,7 @@ meta.foundation-mq-topbar {
         color: #fff; }
   .top-bar-section ul li:hover:not(.has-form) > a {
     background: #e7e7e7;
-    color: #444; }
+    color: #777; }
   .top-bar-section ul li.active > a {
     background: #008CBA;
     color: #fff; }
@@ -2544,7 +2544,7 @@ meta.foundation-mq-topbar {
       .top-bar-section .dropdown li.title h5 {
         margin-bottom: 0; }
         .top-bar-section .dropdown li.title h5 a {
-          color: #444;
+          color: #777;
           line-height: 1.5rem;
           display: block; }
       .top-bar-section .dropdown li.has-form {
@@ -2601,7 +2601,7 @@ meta.foundation-mq-topbar {
           display: none; }
     .top-bar-section li.hover > a:not(.button) {
       background: #e7e7e7;
-      color: #444; }
+      color: #777; }
     .top-bar-section li:not(.has-form) a:not(.button) {
       padding: 0 1rem;
       line-height: 3rem;
@@ -2666,7 +2666,7 @@ meta.foundation-mq-topbar {
         color: #fff;
         background: #333; }
       .top-bar-section .dropdown li:not(.has-form):hover > a:not(.button) {
-        color: #444;
+        color: #777;
         background: #e7e7e7; }
       .top-bar-section .dropdown li label {
         white-space: nowrap;
@@ -2697,7 +2697,7 @@ meta.foundation-mq-topbar {
         left: 100%; }
   .no-js .top-bar-section ul li:hover > a {
     background: #e7e7e7;
-    color: #444; }
+    color: #777; }
   .no-js .top-bar-section ul li:active > a {
     background: #008CBA;
     color: #fff; }
@@ -2971,7 +2971,7 @@ dl dd {
 abbr, acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222;
+  color: #333;
   border-bottom: 1px dotted #ddd;
   cursor: help; }
 
@@ -3273,6 +3273,19 @@ th.hide-for-touch {
 .touch th.show-for-touch {
   display: table-cell !important; }
 
+.prev-next {
+  display: block;
+  padding: 0.5625rem 0.875rem 0.5625rem;
+  overflow: hidden;
+  margin-left: 0;
+  list-style: none;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #f4f4f4;
+  border-color: #dcdcdc;
+  border: none;
+  line-height: 1.5rem; }
+
 .liturgical-btn {
   border-style: solid;
   border-width: 0px;
@@ -3302,14 +3315,14 @@ th.hide-for-touch {
 
 .lit-background {
   background-color: #f8f8f8;
-  color: #444; }
+  color: #777; }
 
 .lit-background h1 {
   color: inherit; }
 
 .liturgical {
   background-color: #f8f8f8;
-  color: #444; }
+  color: #777; }
 
 .contain-to-grid.liturgical {
   border-bottom: 1px solid #e7e7e7 !important; }

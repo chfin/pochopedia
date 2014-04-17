@@ -1,0 +1,7 @@
+.prev-next {
+  @include crumb-container;
+  //margin-top: -1px;
+  border: none;
+  //radius: 2px
+  line-height: 1.5rem;
+}
