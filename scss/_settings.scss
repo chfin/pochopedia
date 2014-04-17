@@ -1,0 +1,23 @@
+// Custom Foundation Settings
+// See /foundation/scss/foundation/_settings.scss for all available variables
+
+$topbar-height: 3rem;
+$topbar-link-font-size: 14px;
+
+//set time-dependent colors
+$topbar-bg-color: $lit-bg;
+$topbar-dropdown-bg: $lit-bg;
+
+$topbar-link-color: $lit-fg;
+$topbar-link-color-hover: $lit-fg;
+$topbar-menu-icon-color: $lit-fg;
+$topbar-menu-icon-color-toggled: $lit-fg;
+
+$topbar-link-bg-hover: $lit-active-bg;
+//$topbar-link-bg-active: $lit-active-bg;
+
+
+//$base-font-size: 14px;
+//$rem-base: $base-font-size;
+
+$cursor-default-value: auto !default;

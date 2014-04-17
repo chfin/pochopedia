@@ -11,9 +11,18 @@
   color: <% @var a-fg %>;
 }
 
+.lit-background h1 {
+  color: inherit;
+}
+
+.liturgical {
+  background-color: <% @var bg %>;
+  color: <% @var a-fg %>;
+}
+
+/*
 <% (if (eq (getf env :color) :white) (progn %>
 input.liturgical {
-  /*border-color: <% @var bg %>;*/
 }
 
 input.liturgical:hover {
@@ -28,14 +37,14 @@ input.liturgical:focus:hover
 }
 <% ) (progn %>
 input.liturgical:hover {
-  /*border-color: <% @var a-bg %>;*/
 }
 
 input.liturgical:focus {
-  border-color: #ccc; /*<% @var bg %>; */
+  border-color: #ccc; 
   box-shadow: inset 0 0 2px <% @var bg %>;
 }
 <% )) %>
+*/
 
 .navbar-liturgical {
   background-color: <% @var bg %>;

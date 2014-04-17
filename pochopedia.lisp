@@ -127,10 +127,8 @@
 (defun update-stylesheet (&optional (time (local-time:now)))
   (let* ((lit-region (lit-colors:get-region time))
          (color (lit-colors:region-color lit-region)))
-    (alexandria:write-string-into-file
-     (cl-emb:execute-emb (rel-path "static/css/time-dependent.tmpl")
-                         :env (cons :color
-                                    (cons color
-                                          (getf *css-lit-colors* color))))
-     (rel-path "static/css/time-dependent.css")
-     :if-exists :supersede)))
+    (libsass:sass-file (rel-path "scss/app.scss") (rel-path "static/css/foundation.css")
+                       :include-paths (list (rel-path "foundation/scss/")
+                                            (rel-path (format nil "scss/~(~a~)/"
+                                                              color)))))
+  nil)

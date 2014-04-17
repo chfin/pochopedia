@@ -1,9 +1,9 @@
-body {
-    padding-top: 50px;
-}
-
 .logo {
     font-family: LinLibertineS !important;
+}
+
+nav .logo {
+    font-size: 21px;
 }
 
 .prev-next {

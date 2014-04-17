@@ -1,0 +1,24 @@
+// _time-dependent.scss
+
+.liturgical-btn {
+  @include button($button-med, $lit-active-bg, false, false, false);
+  //border-width: 1px;
+}
+
+.lit-background {
+  background-color: $lit-bg;
+  color: $lit-fg;
+}
+
+.lit-background h1 {
+  color: inherit;
+}
+
+.liturgical {
+  background-color: $lit-bg;
+  color: $lit-fg;
+}
+
+.contain-to-grid.liturgical {
+  border-bottom: 1px solid $lit-active-bg !important;
+}

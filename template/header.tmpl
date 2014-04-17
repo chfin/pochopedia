@@ -6,39 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Pochopedia - Die Online-Notendatenbank für Posaunenchöre">
     <meta name="author" content="Christoph Finkensiep <chfin@freenet.de>">
+
     <title><% @var :link-text %> - Pochopedia</title>
-    <!-- Bootstrap -->
-    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!--link href="/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"-->
-    <link href="/static/css/linux-libertine.css" rel="stylesheet">
+
+    <!-- Foundation -->
+    <link rel="stylesheet" href="/static/foundation/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/foundation.css">
+    <script src="/static/foundation/js/vendor/modernizr.js"></script>
+
     <link href="/static/css/linux-libertine-s.css" rel="stylesheet">
     <link href="/static/css/main.css" rel="stylesheet">
-    <link href="/static/css/theme.css" rel="stylesheet">
-    <link href="/static/css/time-dependent.css" rel="stylesheet">
+    <!--link href="/static/css/time-dependent.css" rel="stylesheet"-->
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body role="document">
     
-    <nav class="navbar navbar-liturgical navbar-fixed-top hidden-print">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!--a class="navbar-brand" href="#">PA</a-->
-          <a class="navbar-brand logo" href="/">PochopediA</a>
-          <!--a class="navbar-brand" href="#">P&#xe05f;A</a-->
-        </div>
-        <div class="navbar-collapse collapse">
+    <div class="contain-to-grid liturgical">
+      <nav class="top-bar liturgical" data-topbar>
+        <ul class="title-area">
+          <li class="name"><h1><a class="logo" href="/">PochopediA</a><h1></li>
+          <li class="divider"></li>
+          <li class="toggle-topbar menu-icon"><a href="#"></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-form">
+              <form action="/search" method="GET">
+              <div class="row collapse">
+                <div class="large-8 small-9 columns">
+                  <input type="text" name="q" placeholder="Suchbegriffe">
+                </div>
+                <div class="large-4 small-3 columns">
+                  <button class="liturgical-btn expand">Suchen</button>
+                </div>
+              </div>
+              </form>
+            </li>
+          </ul>
+          <ul class="left">
+            <li><a herf="/">Startseite</a></li>
+            <li><a herf="/blog">Blog</a></li>
+          </ul>
+        </section>
+        
+
+        <!--div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Startseite</a></li>
             <li><a href="#">bla</a></li>
@@ -52,8 +64,9 @@
               <span class="glyphicon glyphicon-search"></span>
             </button>
           </form>
-        </div>
-      </div>
-    </nav>
+        </div-->
+      </nav>
+    </div>
 
-    <div class="container">
+    <div class="row">
+      <div class="large-12 columns">

@@ -6,6 +6,7 @@
   :author "Christoph Finkensiep <chfin@freenet.de>"
   :license "MIT/X11"
   :depends-on (#:alexandria
+               #:libsass
                #:ningle
                #:clack-handler-hunchentoot
                #:ev-liturgical-colors

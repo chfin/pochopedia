@@ -14,39 +14,49 @@
   <% @endif %>
 </nav>
 
-<h1 class="page-header">
+<h1>
   <% @var title %>
   <small>[EG <% @var eg-number %><% @if eg-sub %> <% @var eg-sub %><% @endif %>]</small>
 </h1>
-<section>
-  <dl class="dl-horizontal">
-    <dt>Tonart</dt><dd><% @var key %></dd>
-    <dt>Taktart</dt><dd><% @var time-sig %></dd>
-    <dt>Besetzung</dt><dd><% @var voices %></dd>
-  </dl>
-</section>
-<section>
-  <dl class="dl-horizontal">
-    <dt>Text</dt><dd><% @var poet %></dd>
-    <dt>Melodie</dt>
-    <dd>
-      <% @if melodist %><% @var melodist %><% @endif %>
-      <% @if melody-desc %><% @var melody-desc %><% @endif %>
-    </dd>
-    <dt>Satz</dt><dd><% @var composer %></dd>
-    <dt>Intonation</dt><dd><% @var intonation %></dd>
-  </dl>
-</section>
 <% @if eg-redirects %>
 <section>
-  Choräle mit der selben Melodie:
-  <ul>
+  <h4>Choräle mit der selben Melodie:</h4>
+  <ul class="inline-list">
     <% @loop eg-redirects %>
-    <% @var this %>
+    <li><% @var this %></li>
     <% @endloop %>
   </ul>
 </section>
 <% @endif %>
+<ul class="inline-list">
+  <li><a href="site/1b.html">EG 1b</a></li>
+  <li><a href="site/2.html">EG 2b</a></li>
+</ul>
+<div class="row">
+  <div class="medium-6 large-4 columns">
+    <section>
+      <dl class="dl-horizontal">
+        <dt>Tonart</dt><dd><% @var key %></dd>
+        <dt>Taktart</dt><dd><% @var time-sig %></dd>
+        <dt>Besetzung</dt><dd><% @var voices %></dd>
+      </dl>
+    </section>
+  </div>
+  <div class="medium-6 large-4 columns end">
+    <section>
+      <dl class="dl-horizontal">
+        <dt>Text</dt><dd><% @var poet %></dd>
+        <dt>Melodie</dt>
+        <dd>
+          <% @if melodist %><% @var melodist %><% @endif %>
+          <% @if melody-desc %><% @var melody-desc %><% @endif %>
+        </dd>
+        <dt>Satz</dt><dd><% @var composer %></dd>
+        <dt>Intonation</dt><dd><% @var intonation %></dd>
+      </dl>
+    </section>
+  </div>
+</div>
 <ul class="pager">
 </ul>
 
