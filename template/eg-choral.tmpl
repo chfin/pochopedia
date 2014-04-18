@@ -2,16 +2,20 @@
 <% @include header.tmpl %>
 
 <nav class="prev-next hide-for-print row">
-  <% @if previous %>
-  <% @with previous %>
-  <a class="medium-6 columns" href="<% @var :url %>">&laquo; <% @var :link-text %></a>
+  <div class="medium-6 columns hanging">
+    <% @if previous %>
+    <% @with previous %>
+    <a href="<% @var :url %>">&laquo; <% @var :link-text %></a>
   <% @endwith %>
   <% @endif %>
-  <% @if next %>
-  <% @with next %>
-  <a class="medium-6 columns text-right" href="<% @var :url %>"><% @var :link-text %> &raquo;</a>
-  <% @endwith %>
-  <% @endif %>
+  </div>
+  <div class="medium-6 columns text-right hanging">
+    <% @if next %>
+    <% @with next %>
+    <a href="<% @var :url %>"><% @var :link-text %> &raquo;</a>
+    <% @endwith %>
+    <% @endif %>
+  </div>
 </nav>
 
 <h1 class="page-header">

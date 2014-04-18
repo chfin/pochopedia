@@ -8,4 +8,19 @@ nav .logo {
 
 h1.page-header {
     border-bottom: 1px solid #eee;
+    margin: 0.5em 0;
+}
+
+.hanging {
+    /*text-indent: -1em;*/
+}
+
+.row .prev-next {
+  line-height: 1.5rem;
+  padding: 0.5em;
+  //margin: 0 -2en;
+}
+
+.inline-list > li > a {
+    display: inline;
 }
