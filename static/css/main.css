@@ -24,3 +24,13 @@ h1.page-header {
 .inline-list > li > a {
     display: inline;
 }
+
+/* necessary for top-bar height */
+
+.top-bar-section input {
+    margin-top: 2px;
+}
+
+.top-bar-section button {
+    margin-top: 2px;
+}
