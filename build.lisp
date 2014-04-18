@@ -11,6 +11,7 @@
 (in-package #:pochopedia.executable)
 
 (defun run ()
+  (setf (osicat:environment-variable "POCHO_ENV") "production")
   (pochopedia:compile-db)
   (pochopedia:compile-styles)
   (pochopedia:start-server)
