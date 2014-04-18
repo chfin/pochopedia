@@ -3282,6 +3282,9 @@ th.hide-for-touch {
 a:hover {
   border-bottom: 1px solid #008CBA; }
 
+.top-bar a:hover {
+  border-bottom: none; }
+
 .liturgical-btn {
   border-style: solid;
   border-width: 0px;
