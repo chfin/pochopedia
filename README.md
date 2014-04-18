@@ -60,7 +60,7 @@ or restart it (e.g. after reloading the ASDF system) with
 CL-USER> (pochopedia:restart-server)
 ```
 
-### Using the build script (production, currently requires quicklisp)
+### Using the build script (production)
 
 Run the file `build.lisp` e.g.
 
@@ -77,6 +77,8 @@ and will be compiled into the binary based on the location of the system at comp
 This means, you should be able to put the binary anywhere you like
 (e.g. your web server's document tree)
 and it will still use the directory containing the ASDF system at compile time
+
+The build script will use Quicklisp if available but will fall back to ASDF if not.
 
 ## Configuration
 

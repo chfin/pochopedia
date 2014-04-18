@@ -1,9 +1,20 @@
-(ql:quickload "osicat")
+
+#+quicklisp (ql:quickload "osicat")
+#-asdf (require 'asdf)
+#-quicklisp (asdf:load-system "osicat")
 (setf (osicat:environment-variable "POCHO_ENV") "production")
-(ql:quickload "pochopedia")
-(ql:quickload "trivial-dump-core")
-(ql:quickload "swank")
-(ql:quickload "bordeaux-threads")
+#+quicklisp
+(progn
+  (ql:quickload "pochopedia")
+  (ql:quickload "trivial-dump-core")
+  (ql:quickload "swank")
+  (ql:quickload "bordeaux-threads"))
+#-quicklisp
+(progn
+  (asdf:load-system "pochopedia")
+  (asdf:load-system "trivial-dump-core")
+  (asdf:load-system "swank")
+  (asdf:load-system "bordeaux-threads"))
 
 (defpackage #:pochopedia.executable
   (:use #:cl))
