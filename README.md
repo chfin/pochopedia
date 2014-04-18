@@ -10,14 +10,25 @@ Pochopedia has some dependencies not yet on Quicklisp, namely:
 
 * [site-compiler](https://github.com/chfin/site-compiler)
 * [ev-liturgical-colors](https://github.com/chfin/ev-liturgical-colors)
+* [cl-libsass](https://github.com/chfin/cl-libsass)
 
 You can clone them to your Quicklisp installation's `local-projects/` directory
 or put them somewhere in your asdf load path.
+
+Furthermore [libsass](http://libsass.org/) needs to be installed
+(as well as sassc, when running on SBCL,
+[see cl-libsass](https://github.com/chfin/cl-libsass)).
 
 ## Installation
 
 Clone the [repository](https://github.com/chfin/pochopedia)
 ([HTTPS clone URL](https://github.com/chfin/pochopedia.git)) to an ASDF-loadable location.
+You also need to initialize the foundation git submodule inside the directory:
+
+```
+$ git submodules init
+$ git submodules update
+```
 
 ## Running
 
@@ -33,6 +44,7 @@ To start the server run
 
 ```common-lisp
 CL-USER> (pochopedia:compile-db)
+CL-USER> (pochopedia:compile-styles)
 CL-USER> (pochopedia:start-server)
 ```
 
