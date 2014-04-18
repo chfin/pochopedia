@@ -1,3 +1,5 @@
+(ql:quickload "osicat")
+(setf (osicat:environment-variable "POCHO_ENV") "production")
 (ql:quickload "pochopedia")
 (ql:quickload "trivial-dump-core")
 (ql:quickload "swank")
@@ -9,7 +11,6 @@
 (in-package #:pochopedia.executable)
 
 (defun run ()
-  (setf (osicat:environment-variable "POCHO_ENV") "production")
   (pochopedia:compile-db)
   (pochopedia:compile-styles)
   (pochopedia:start-server)
