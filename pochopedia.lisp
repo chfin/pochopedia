@@ -13,45 +13,12 @@
   (:import-from #:ningle
                 #:*response* #:route)
   (:export #:compile-db
+           #:compile-styles
            #:start-server
            #:stop-server
            #:restart-server))
 
 (in-package #:pochopedia)
-
-(defparameter *css-lit-colors*
-  (list
-   :white (list
-           :fg "#777"
-           :bg "#f8f8f8"
-           :a-fg "#444"
-           :a-bg "#e7e7e7"
-           :da "#ddd")
-   :black (list
-           :fg "#999"
-           :bg "#222"
-           :a-fg "#fff"
-           :a-bg "#080808"
-           :da "#444"
-           )
-   :red (list
-         :fg "#fbb"
-         :bg "#e00500"
-         :a-fg "#fff"
-         :a-bg "#ad0400"
-         :da "#ad0400")
-   :green (list
-           :fg "#fff"
-           :bg "#29720c" ; "#00ad04"
-           :a-fg "#51fe1c" ;"#44be15"
-           :a-bg "#21580c"
-           :da "#21580c")
-   :purple (list
-           :fg "#fbf"
-           :bg "#661a72"
-           :a-fg "#fff"
-           :a-bg "#aa2bbe"
-           :da "#aa2bbe")))
 
 ;;reset cache
 (setf site-compiler.document::*schema-cache* (make-hash-table :test 'equal))
@@ -68,6 +35,9 @@
     :tags '("pochopedia" "posaunenchor" "noten" "notendatenbank"))
    *app*))
 (defvar *handler* nil)
+
+(defvar *stylesheet-cron-job*
+  (cron:make-cron-job 'compile-styles :step-min 15))
 
 (setf (route *app* "/")
       (lambda (params)
@@ -124,7 +94,7 @@
     (fill-search-index)
     t))
 
-(defun update-stylesheet (&optional (time (local-time:now)))
+(defun compile-styles (&optional (time (local-time:now)))
   (let* ((lit-region (lit-colors:get-region time))
          (color (lit-colors:region-color lit-region)))
     (libsass:sass-file (rel-path "scss/app.scss") (rel-path "static/css/foundation.css")

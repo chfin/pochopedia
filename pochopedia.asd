@@ -13,7 +13,8 @@
                #:envy
                #:osicat
                #:site-compiler
-               #:montezuma)
+               #:montezuma
+               #:cl-cron)
   :components ((:file "opensearch")
                (:file "util")
                (:file "config")

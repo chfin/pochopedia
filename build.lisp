@@ -11,7 +11,9 @@
 (defun run ()
   (setf (osicat:environment-variable "POCHO_ENV") "production")
   (pochopedia:compile-db)
+  (pochopedia:compile-styles)
   (pochopedia:start-server)
+  (cron:start-cron)
   (let ((env-port (osicat:environment-variable "POCHO_SWANK_PORT")))
     (swank:create-server :port (or (and env-port
                                         (parse-integer env-port))
