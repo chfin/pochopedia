@@ -25,12 +25,14 @@
 (defconfig |local|
     `(:port 5001
       :swank-port 5002
-      :serve-static t))
+      :serve-static t
+      :domain-name "http://localhost:5001"))
 
 (defconfig |production|
     `(:port 61819
       :swank-port 61820
-      :serve-static t))
+      :serve-static t
+      :domain-name "http://pochopedia.chfin.de"))
 
 (defun config (&optional key)
   (envy:config #.(package-name *package*) key))

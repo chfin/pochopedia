@@ -31,7 +31,8 @@
    (<clack-middleware-opensearch>
     :title "Pochopedia"
     :description "Die Pochopedia Notendatenbank durchsuchen"
-    :html-query "/search?q={searchTerms}"
+    :html-query (format nil "~a/search?q={searchTerms}" (config :domain-name))
+    :image (format nil "~a/static/favicon.ico" (config :domain-name))
     :tags '("pochopedia" "posaunenchor" "noten" "notendatenbank"))
    *app*))
 (defvar *handler* nil)
