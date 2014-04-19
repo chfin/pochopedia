@@ -16,9 +16,9 @@
 (defconfig :common
     `(:application-root ,(asdf:system-source-directory "pochopedia")
       :site-path "site/default.html"
-      :data-path "data/default.yaml"
-      :schema-path "schema/default.yaml"
-      :template-path "template/default.tmpl"
+      :data-path "content/data/default.yaml"
+      :schema-path "content/schema/default.yaml"
+      :template-path "content/template/default.tmpl"
       :base-url "/site/"
       :server :hunchentoot))
 
