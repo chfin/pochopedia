@@ -53,7 +53,14 @@
         (let ((results (mapcar
                         (lambda (x) (list :this x))
                         (search-index (getf params :|q|)))))
-          (cl-emb:execute-emb (rel-path "search.tmpl") :env (list :results results)))))
+          (cl-emb:execute-emb (rel-path "view/search.tmpl") :env (list :results results)))))
+
+(setf (route *app* "/edit/*")
+      (lambda (params)
+        (let* ((id (car (getf params :splat)))
+               (fn (rel-path (format nil "content/~a" id))))
+          (cl-emb:execute-emb (rel-path "view/edit.tmpl")
+                              :env (list :id id :filename fn)))))
 
 (setf (route *app* "*")
       (lambda (params)
