@@ -16,8 +16,8 @@
                #:montezuma
                #:cl-cron)
   :components ((:file "opensearch")
-               (:file "util")
                (:file "config")
+               (:file "util")
                (:file "search")
                (:file "pochopedia")))
 

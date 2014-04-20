@@ -34,3 +34,7 @@ h1.page-header {
 .top-bar-section button {
     margin-top: 2px;
 }
+
+.tabs a:hover {
+    border-bottom: none;
+}

@@ -1,7 +1,7 @@
 ;;;; pochopedia.lisp
 
 (defpackage #:pochopedia
-  (:use #:cl #:pochopedia.config #:pochopedia.search)
+  (:use #:cl #:pochopedia.config #:pochopedia.search #:pochopedia.util)
   (:import-from #:site-compiler
                 #:compile-all)
   (:import-from #:clack.builder
@@ -58,9 +58,24 @@
 (setf (route *app* "/edit/*")
       (lambda (params)
         (let* ((id (car (getf params :splat)))
-               (fn (rel-path (format nil "content/~a" id))))
+               (fn (id-to-yaml-fn id)))
           (cl-emb:execute-emb (rel-path "view/edit.tmpl")
                               :env (list :id id :filename fn)))))
+
+(setf (route *app* "/preview/*")
+      (lambda (params)
+        (let ((text (getf params :|text|))
+              (id (car (getf params :splat))))
+          (preview text id))))
+
+(setf (route *app* "/save/*" :method :post)
+      (lambda (params)
+        (let ((text (getf params :|text|))
+              (id (car (getf params :splat))))
+          (alexandria:write-string-into-file text (id-to-yaml-fn id)
+                                             :if-exists :overwrite)
+          (compile-db)
+          (clack.response:redirect *response* (id-to-url id)))))
 
 (setf (route *app* "*")
       (lambda (params)
@@ -101,6 +116,14 @@
     (compile-all :clear-caches t)
     (fill-search-index)
     t))
+
+(defun preview (string name)
+  (let ((site-compiler:*data-dir* (rel-path (config :data-path)))
+        (site-compiler:*site-dir* (rel-path (config :site-path)))
+        (site-compiler:*template-dir* (rel-path (config :template-path)))
+        (site-compiler:*schema-dir* (rel-path (config :schema-path)))
+        (site-compiler:*base-url* (config :base-url)))
+    (site-compiler:preview-yaml string name)))
 
 (defun compile-styles (&optional (time (local-time:now)))
   (let* ((lit-region (lit-colors:get-region time))

@@ -1,8 +1,10 @@
 ;;;; util.lisp
 
 (defpackage #:pochopedia.util
-  (:use #:cl)
-  (:export #:serve-file))
+  (:use #:cl #:pochopedia.config)
+  (:export #:serve-file
+           #:id-to-url
+           #:id-to-yaml-fn))
 
 (in-package #:pochopedia.util)
 
@@ -13,3 +15,9 @@
                                                   :type (pathname-type file))
                              :encoding encoding)
               nil))
+
+(defun id-to-url (id)
+  (format nil "~a~a" (config :base-url) (make-pathname :type "html" :defaults id)))
+
+(defun id-to-yaml-fn (id)
+  (merge-pathnames id (rel-path (config :data-path))))

@@ -1,18 +1,59 @@
 <% @include ../content/template/header.tmpl %>
    <style type="text/css" media="screen">
-     #editor { 
-       //height: 400px;
+     #preview {
+       border: 1px solid #eee;
      }
   </style>
   <h1 class="page-header">Bearbeiten <small>(<% @var id %>)</small></h1>
-  <section id="editor"><% @insert filename %></section>
+  
+  <dl class="tabs" data-tab>
+    <dd class="active"><a href="#editor">Bearbeiten</a></dd>
+    <dd><a href="#preview">Vorschau</a></dd>
+  </dl>
+  <div class="tabs-content">
+    <section id="editor" class="content active"><% @insert filename %></section>
+    <section id="preview" class="content">Preview</section>
+  </div>
+  
+  <button id="save">Speichern</button>
+  
+  </div><!-- main 12 columns -->
+  </div><!-- main row -->
+
+  <script src="/static/foundation/js/vendor/jquery.js"></script>
+  <script src="/static/foundation/js/foundation.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>
+
   <script>
+    $(document).foundation();
+
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/yaml");
     editor.setOptions({
       maxLines: Infinity
     });
+
+    $("#preview").on("toggled", function (event, tab) {
+      $.get("/preview/",
+        {text: editor.getSession().getValue(), id: "<% @var id %>"},
+        function (data) {
+          $("#preview").html(data);
+        });
+      console.log("Preview");
+    });
+
+    $("#save").on("click", function (event, btn) {
+      var form = $("<form>")
+        .attr("method", "post")
+        .attr("action", "/save/<% @var id %>");
+      $("<input type='hidden'>")
+        .attr("name", "text")
+        .attr("value", editor.getSession().getValue())
+        .appendTo(form);
+      form.appendTo("body");
+      form.submit();
+    });
   </script>
-<% @include ../content/template/footer.tmpl %>
+</body>
+</html>
