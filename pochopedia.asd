@@ -16,6 +16,7 @@
                #:montezuma
                #:cl-cron)
   :components ((:file "opensearch")
+               (:file "error-pages")
                (:file "config")
                (:file "util")
                (:file "search")

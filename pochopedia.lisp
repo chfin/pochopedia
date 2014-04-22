@@ -1,7 +1,8 @@
 ;;;; pochopedia.lisp
 
 (defpackage #:pochopedia
-  (:use #:cl #:pochopedia.config #:pochopedia.search #:pochopedia.util)
+  (:use #:cl #:pochopedia.config #:pochopedia.search #:pochopedia.util
+        #:clack.middleware.error-pages)
   (:import-from #:site-compiler
                 #:compile-all)
   (:import-from #:clack.builder
@@ -28,6 +29,7 @@
   (make-instance 'ningle:<app>))
 (defparameter *wrapped-app*
   (builder
+   (<clack-middleware-error-pages>)
    (<clack-middleware-opensearch>
     :title "Pochopedia"
     :description "Die Pochopedia Notendatenbank durchsuchen"
@@ -55,12 +57,34 @@
                         (search-index (getf params :|q|)))))
           (cl-emb:execute-emb (rel-path "view/search.tmpl") :env (list :results results)))))
 
+(define-condition document-not-found (error)
+  ((id :type string
+       :initarg :id
+       :reader document-not-found-id)))
+
+(defmethod error-http-code ((err document-not-found))
+  (declare (ignore err))
+  404)
+
+(defmethod print-error-page ((err document-not-found) middleware env)
+  (cl-emb:execute-emb (rel-path "view/doc-not-found.tmpl")
+                      :env (list :id (document-not-found-id err))))
+
 (setf (route *app* "/edit/*")
       (lambda (params)
         (let* ((id (car (getf params :splat)))
                (fn (id-to-yaml-fn id)))
+          (unless (probe-file fn)
+            (error 'document-not-found :id id))
           (cl-emb:execute-emb (rel-path "view/edit.tmpl")
                               :env (list :id id :filename fn)))))
+
+(setf (route *app* "/create/*")
+      (lambda (params)
+        (let* ((id (car (getf params :splat)))
+               (fn (id-to-yaml-fn id)))
+          (alexandria:write-string-into-file "schema: " fn)
+          (clack.response:redirect *response* (format nil "/edit/~a" id)))))
 
 (setf (route *app* "/preview/*")
       (lambda (params)
@@ -77,10 +101,12 @@
           (compile-db)
           (clack.response:redirect *response* (id-to-url id)))))
 
+(defmethod print-error-page (<page-not-found-error> middleware env)
+  (cl-emb:execute-emb (rel-path "view/404.tmpl")))
+
 (setf (route *app* "*")
       (lambda (params)
-        (setf (clack.response:status *response*) 404)
-        "not found"))
+        (error '<page-not-found-error>)))
 
 (defun start-server ()
   (unless *handler*
