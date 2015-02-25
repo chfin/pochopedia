@@ -6,7 +6,7 @@ include: [choral, serial]
 keys:
   eg-number:    # EG-Nummer ("1", "316/317", "178.7")
   eg-sub:       # Satzbezeichnung (a/b, I/II)
-  eg-redirects: # Choräle, die auf diesen Verweisen.
+  eg-redirects: # Choräle, die auf diesen verweisen.
     reverse:
       schema: eg-choral-redirect
       key: redirect

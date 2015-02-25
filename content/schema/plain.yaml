@@ -1,0 +1,7 @@
+# schema file: plain.yaml
+# Schema für reinen Text, z.B. die Hilfeseiten.
+template: plain
+keys:
+  title:   # Seitentitel
+  content: # Inhalt der Seite
+    markdown: true

@@ -1,0 +1,44 @@
+schema: plain
+title: Über Pochopedia
+content: |
+  Pochopedia ist eine Notendatenbank für Posaunenchöre, ähnlich der [PCND](http://www.koch-beutelsbach.de/pcnd/).
+  Im Gegensatz zur PCND ist Pochopedia allerdings:
+
+  * kostenlos: Pochopedia ist eine frei zugängliche Internetseite, der Datenbestand kann separat heruntergeladen werden.
+  * webbasiert: Pochopedia ist frei über Internet erreichbar und immer aktuell, während die PCND auf einem PC installiert  und von Hand aktualisiert werden muss.
+  * kollaborativ: Jeder kann bei Pochopedia mitmachen und neue Noten in die Datenbank eintragen.
+
+  Pochopedia soll also eine Art Notendatenbank nach dem Wikipedia-Prinzip sein.
+  
+  # Ziele
+
+  Neben den oben genannten, allgemeinen Zielen verfolgt Pochopedia einen bestimmten Ansatz bei der Umsetzung der Datenbank.
+  Das Design der Pochopedia soll schlicht aber ansprechend und leicht bedienbar sein. Insbesondere soll der Zugriff über mobile Geräte leicht möglich sein.
+  Dabei sollen vor allem die gesuchten Informationen übersichtlich präsentiert werden und möglichst leicht erfassbar sein.
+  
+  Ähnliche Einträge sollen möglichst einheitlich strukturiert sein, gleichzeitig sollen spezielle Informationen für bestimmte Einträge möglichst passend dargestellt werden.
+  Der Titel eines Stückes soll, zum Beispiel, immer gleich dargestellt werden, egal ob es sich um einen Choral, ein Vorspiel oder ein freies Stück handelt.
+  Bei Chorälen aus dem Choralbuch zum EG kann aber zusätzlich angegeben werden, welche Lieder die selbe Melodie haben.
+  Dabei sollen Stücke des selben *Typs* (z.B. die EG-Choräle) aber möglichst einheitlich dargestellt werden.
+
+  # Umsetzung
+
+  Die Datenbank ist als Sammlung von Textdateien strukturiert. Dabei gibt es drei Typen von Dateien:
+
+  * Daten
+  * Schemata
+  * Templates
+
+  Datendateien enthalten die konkreten Datensätze für Stücke, Bücher, Personen und andere Datenbankeinträge im [YAML-Format](http://www.yaml.org/).
+  Für jeden Datenbankeintrag gibt es eine Datei und jede Datei entspricht später einer Seite.
+  Der Datensatz einer Datei wird als Liste von Eigenschaft-Wert-Paaren beschrieben.
+  Jedem Datensatz ist ein Schema zugeordnet.
+
+  Schemadateien legen fest, welche Eigenschaften ein Datensatz haben kann.
+  Für jeden Typ von Datenbankeinträgen gibt es ein Schema.
+  Schemata sind hierarchisch strukturiert, es kann z.B. ein Schema `Stück` geben, das alle Eigenschaften beschreibt, die alle Stücke gemeinsam haben, und ein Schema `Choral`, das alle Eigenschaften von `Stück` übernimmt und zusätzlich noch spezielle Eigenschaften für Choräle definiert.
+  Das Schema legt außerdem fest, welches Template zur Darstellung der Datensätze benutzt wird.
+
+  Templates sind HTML-Vorlagen, die wie ein Lückentext funktionieren.
+  Wird ein Datensatz in eine HTML-Seite übersetzt, werden seine Werte in die Lücken des zugehörigen Templates eingefügt.
+  Dadurch ist das Aussehen von Datensätzen gleichen Typs einheitlich, kann aber für die speziellen Eigenheiten von Typen angepasst werden.
