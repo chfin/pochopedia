@@ -102,4 +102,4 @@
                        :include-paths (list (rel-path "foundation/scss/")
                                             (rel-path (format nil "scss/~(~a~)/"
                                                               color)))))
-  nil)
+  t)
