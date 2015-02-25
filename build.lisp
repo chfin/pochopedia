@@ -1,20 +1,14 @@
-
-#+quicklisp (ql:quickload "osicat")
+;;;; build.lisp
 #-asdf (require 'asdf)
+#+quicklisp (ql:quickload "osicat")
 #-quicklisp (asdf:load-system "osicat")
 (setf (osicat:environment-variable "POCHO_ENV") "production")
-#+quicklisp
-(progn
-  (ql:quickload "pochopedia")
-  (ql:quickload "trivial-dump-core")
-  (ql:quickload "swank")
-  (ql:quickload "bordeaux-threads"))
-#-quicklisp
-(progn
-  (asdf:load-system "pochopedia")
-  (asdf:load-system "trivial-dump-core")
-  (asdf:load-system "swank")
-  (asdf:load-system "bordeaux-threads"))
+(let ((load-list '("pochopedia"
+                   "trivial-dump-core"
+                   "bordeaux-threads"
+                   "swank")))
+  #+quicklisp (mapcar #'ql:quickload load-list)
+  #-quicklisp (mapcar #'asdf:load-system load-list))
 
 (defpackage #:pochopedia.executable
   (:use #:cl))
@@ -33,6 +27,10 @@
                                    (pochopedia.config:config :swank-port)
                                    swank::default-server-port)
                          :dont-close t))
-  (mapcar #'bt:join-thread (bt:all-threads)))
+  (write-line "Server is running. To quit, hit <C-c>.")
+  (handler-case (mapcar #'bt:join-thread (bt:all-threads))
+    #+sbcl(sb-sys:interactive-interrupt ()
+            (write-line "Bye!")
+            (sb-ext:exit))))
 
 (trivial-dump-core:save-executable "pochopedia" #'run)
