@@ -20,6 +20,10 @@
 
 (in-package #:pochopedia)
 
+;; helper, until ningle is fixed
+(defun get-param (params key)
+  (cdr (assoc key params :test #'string=)))
+
 ;;reset cache
 (setf site-compiler.document::*schema-cache* (make-hash-table :test 'equal))
 (setf site-compiler.document::*doc-cache* (make-hash-table :test 'equal))
@@ -52,8 +56,8 @@
       (lambda (params)
         (let ((results (mapcar
                         (lambda (x) (list :this x))
-                        (search-index (getf params :|q|)))))
-          (cl-emb:execute-emb (rel-path "search.tmpl") :env (list :results results)))))
+                        (search-index (get-param params "q")))))
+          (cl-emb:execute-emb (rel-path "view/search.tmpl") :env (list :results results)))))
 
 (setf (route *app* "*")
       (lambda (params)
