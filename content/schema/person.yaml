@@ -1,7 +1,7 @@
 # schema file: person.yaml
 # Allgemeines Schema für Personen.
 template: person
-link: <% @var name %>
+link: '{{ name }}'
 keys:
   name:        # Name der Person
   birth:       # Geburt

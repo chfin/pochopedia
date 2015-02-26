@@ -1,7 +1,7 @@
 # schema file: eg-choral.yaml
 # Für Choräle aus dem Choralbuch zum EG.
 template: eg-choral
-link: <% @var title %> [EG <% @var eg-number %><% @if eg-sub %> <% @var eg-sub %><% @endif %>]
+link: '{{ title }} [EG {{ eg-number }}{% if eg-sub %} {{ eg-sub }}{% endif %}]'
 include: [choral, serial]
 keys:
   eg-number:    # EG-Nummer ("1", "316/317", "178.7")

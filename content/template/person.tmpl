@@ -1,27 +1,28 @@
-<%# template file: person #%>
-<% @include header.tmpl %>
+{# template file: person #}
 
-<h1 class="page-header"><% @var name %></h1>
+{% extends "main.tmpl" %}
+
+{% block content %}
+<h1 class="page-header">{{ name }}</h1>
 <p>
-  (<% @if death %><% @var birth %> - <% @var death %><% @else %>* <% @var birth %><% @endif %>)
+  ({% if death %}{{ birth }} - {{ death }}{% else %}* {{ birth }}{% endif %})
 </p>
-<% @if wikipedia %>
+{% if wikipedia %}
 <p>
-  <a href="<% @var wikipedia %>">Wikipedia</a>
+  <a href="{{ wikipedia }}">Wikipedia</a>
 </p>
-<% @endif %>
+{% endif %}
 <section>
-  <% @var description %>
+  {{ description }}
 </section>
-<% @if pieces %>
+{% if pieces %}
 <section>
   <h1>Stücke</h1>
   <ul>
-    <% @loop pieces %>
-    <li><% @var this %></li>
-    <% @endloop %>
+    {% for piece in pieces %}
+    <li>{{ piece }}</li>
+    {% endfor %}
   </ul>
 </section>
-<% @endif %>
-
-<% @include footer.tmpl %>
+{% endif %}
+{% endblock %}

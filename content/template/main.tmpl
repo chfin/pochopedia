@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="/static/favicon.ico">
     <link rel="icon" type="image/png" href="/static/favicon.png">
 
-    <title><% @var :link-text %> - Pochopedia</title>
+    <title>{% block title %}{{ _link_text }}{% endblock %} - Pochopedia</title>
 
     <!-- Foundation -->
     <link rel="stylesheet" href="/static/foundation/css/normalize.css">
@@ -75,3 +75,17 @@
 
     <div class="row">
       <div class="large-12 columns">
+
+{% block content %}
+{% endblock %}
+
+      </div><!-- main 12 columns -->
+    </div><!-- main row -->
+
+    <script src="/static/foundation/js/vendor/jquery.js"></script>
+    <script src="/static/foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

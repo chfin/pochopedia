@@ -1,8 +1,10 @@
-<% @include header.tmpl %>
+{# template file: default #}
 
+{% extends "main.tmpl" %}
+
+{% block content %}
 <h1>Standardtemplate</h1>
 Das hier ist das Standardtemplate.
 Du siehst es, entweder, weil du in diesem Dokument noch kein Schema,
 oder im Schema diese Dokumentes noch kein Template festgelegt hast.
-
-<% @include footer.tmpl %>
+{% endblock %}

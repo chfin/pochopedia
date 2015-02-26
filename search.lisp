@@ -23,9 +23,9 @@
     (let* ((mdoc (make-instance 'montezuma:document))
            (doc (load-document docpath))
            (content (document-contents doc)))
-      (add-field mdoc (make-field "link" (gethash ":link" content) :index nil))
-      (add-field mdoc (make-field "title" (gethash ":link-text" content)))
-      (add-field mdoc (make-field "" (gethash ":link-text" content)))
+      (add-field mdoc (make-field "link" (gethash "_link" content) :index nil))
+      (add-field mdoc (make-field "title" (gethash "_link_text" content)))
+      (add-field mdoc (make-field "" (gethash "_link_text" content)))
       (add-document-to-index *search-index* mdoc))))
 
 (defun query-index (query)

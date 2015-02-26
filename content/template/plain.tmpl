@@ -1,5 +1,10 @@
-<%# template file: person #%>
-<% @include header.tmpl %>
-<h1 class="page-header"><% @var title %></h1>
-<% @var content %>
-<% @include footer.tmpl %>
+{# template file: plain #}
+
+{% extends "main.tmpl" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1 class="page-header">{{ title }}</h1>
+{{ content }}
+{% endblock content %}

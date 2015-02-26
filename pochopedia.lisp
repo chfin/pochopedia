@@ -54,10 +54,13 @@
 
 (setf (route *app* "/search")
       (lambda (params)
-        (let ((results (mapcar
-                        (lambda (x) (list :this x))
-                        (search-index (get-param params "q")))))
-          (cl-emb:execute-emb (rel-path "view/search.tmpl") :env (list :results results)))))
+        (let ((results (search-index (get-param params "q")))
+              (djula:*auto-escape* nil)
+              (djula:*current-store* (make-instance 'djula:file-store)))
+          (djula:add-template-directory (rel-path "view/"))
+          (djula:add-template-directory (rel-path (config :template-path)))
+          (with-output-to-string (stream)
+            (djula:render-template* "search.tmpl" stream :results results)))))
 
 (setf (route *app* "*")
       (lambda (params)

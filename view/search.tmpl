@@ -1,15 +1,20 @@
-<% @include ../content/template/header.tmpl %>
-    <h1 class="page-header">Suchergebnisse</h1>
-    <% @if results %>
-    <ul class="list-unstyled">
-      <% @loop results %>
-      <li><% @var this %></li>
-      <% @endloop %>
-    </ul>
-    <% @else %>
-    <p>
-      Keine Ergebnisse gefunden!<br>
-      <a href="/">Zurück zur Startseite</a>
-    </p>
-    <% @endif %>
-<% @include ../content/template/footer.tmpl %>
+{# search page template #}
+
+{% extends "main.tmpl" %}
+{% block title %}Suchergebnisse{% endblock %}
+
+{% block content %}
+<h1 class="page-header">Suchergebnisse</h1>
+{% if results %}
+<ul class="list-unstyled">
+  {% for result in results %}
+  <li>{{ result }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>
+  Keine Ergebnisse gefunden!<br>
+  <a href="/">Zurück zur Startseite</a>
+</p>
+{% endif %}
+{% endblock %}
