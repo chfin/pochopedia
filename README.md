@@ -1,6 +1,6 @@
 # Pochopedia
 
-Pochopedia is a music database for a german brass choires (Posaunenchöre).
+Pochopedia is a music database for german brass choirs (Posaunenchöre).
 Its primary use is to track in which books you can find a certain piece of music,
 but its also a good example of a web application built with common lisp.
 
@@ -29,6 +29,11 @@ You also need to initialize the foundation git submodule inside the directory:
 $ git submodules init
 $ git submodules update
 ```
+
+Finally, clone the [content repository](https://github.com/chfin/pochopedia-content)
+([HTTPS clone URL](https://github.com/chfin/pochopedia-content.git)) inside the main directory.
+The default configuration assumes the name `pochopedia-content` for the content directory,
+you can change this in `config.lisp` (just change all paths containing "pochopedia-content").
 
 ## Running
 
