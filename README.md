@@ -15,9 +15,10 @@ Pochopedia has some dependencies not yet on Quicklisp, namely:
 You can clone them to your Quicklisp installation's `local-projects/` directory
 or put them somewhere in your asdf load path.
 
-Furthermore [libsass](http://libsass.org/) needs to be installed
-(as well as sassc, when running on SBCL,
-[see cl-libsass](https://github.com/chfin/cl-libsass)).
+Furthermore, you need the following libraries:
+
+* [libuv](https://github.com/libuv/libuv)
+* [libsass](http://libsass.org/) (as well as sassc, when running on SBCL, [see cl-libsass](https://github.com/chfin/cl-libsass))
 
 ## Installation
 
@@ -99,7 +100,7 @@ but support for configuration files is planned.
 
 ## Hosting
 
-Currently pochopedia uses Hunchentoot as a web server but it might be necessary to
+Currently pochopedia uses [Wookie](http://wookie.lyonbros.com/) as a web server but it might be necessary to
 integrate it into another web server, e.g. for shared hosting.
 There are several possibilities to achive this.
 
