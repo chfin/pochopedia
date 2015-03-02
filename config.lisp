@@ -20,7 +20,7 @@
       :schema-path "pochopedia-content/schema/default.yaml"
       :template-path "pochopedia-content/template/default.tmpl"
       :base-url "/site/"
-      :server :wookie))
+      :server :hunchentoot))
 
 (defconfig |local|
     `(:port 5001

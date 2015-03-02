@@ -8,7 +8,7 @@
   :depends-on (#:alexandria
                #:libsass
                #:ningle
-               #:clack-handler-wookie
+               #:clack-handler-hunchentoot
                #:ev-liturgical-colors
                #:envy
                #:osicat
