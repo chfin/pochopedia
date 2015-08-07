@@ -4,12 +4,6 @@
   (:use #:cl #:pochopedia.config #:pochopedia.search)
   (:import-from #:site-compiler
                 #:compile-all)
-  (:import-from #:clack.builder
-                #:builder)
-  (:import-from #:clack.middleware.static
-                #:<clack-middleware-static>)
-  (:import-from #:clack.middleware.opensearch
-                #:<clack-middleware-opensearch>)
   (:import-from #:ningle
                 #:*response* #:route)
   (:export #:compile-db
@@ -31,8 +25,8 @@
 (defparameter *app*
   (make-instance 'ningle:<app>))
 (defparameter *wrapped-app*
-  (builder
-   (<clack-middleware-opensearch>
+  (lack:builder
+   (:opensearch
     :title "Pochopedia"
     :description "Die Pochopedia Notendatenbank durchsuchen"
     :html-query (format nil "~a/search?q={searchTerms}" (config :domain-name))
@@ -64,7 +58,7 @@
 
 (setf (route *app* "*")
       (lambda (params)
-        (setf (clack.response:status *response*) 404)
+        (setf (lack.response:response-status *response*) 404)
         "not found"))
 
 (defun start-server ()
@@ -72,10 +66,10 @@
     (setf *handler*
           (clack:clackup
            (if (config :serve-static)
-               (builder
-                (<clack-middleware-static> :path "/site/" :root (rel-path "site/"))
-                (<clack-middleware-static> :path "/static/" :root (rel-path "static/"))
-                ;;(<clack-middleware-static> :path "/" :root (rel-path "site/index.html"))
+               (lack:builder
+                (:static :path "/site/" :root (rel-path "site/"))
+                (:static :path "/static/" :root (rel-path "static/"))
+                ;;(<lack-middleware-static> :path "/" :root (rel-path "site/index.html"))
                 *wrapped-app*)
                *wrapped-app*)
            :port (config :port)

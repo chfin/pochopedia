@@ -8,7 +8,10 @@
   :depends-on (#:alexandria
                #:libsass
                #:ningle
+               #:lack
+               #:clack
                #:clack-handler-hunchentoot
+               #:lack-middleware-static
                #:ev-liturgical-colors
                #:envy
                #:osicat
